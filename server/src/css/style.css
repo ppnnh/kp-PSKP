@@ -5,10 +5,11 @@ body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin:0;
 }
-#main{
+#div{
   background-color: #d4d29692;
       margin-top: 0;
      margin-left: 0;
+     margin:0;
 }
 .container{
     display: flex;
@@ -32,7 +33,7 @@ body{
 
 input{
     margin-left: 30px;
-    margin-right: 400px;
+    margin-right: 900px;
     margin-top: 15px;
     margin-bottom: 10px;
     border-radius: 10px 10px 10px 10px;
