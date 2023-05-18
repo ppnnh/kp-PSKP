@@ -45,7 +45,7 @@ async function addPizzeria (req,resp){
     }
     let pizzerias=await pizzeria.findFirst({
         where:{
-            name: newDrink.name
+            name: newPizzeria.name
         }
     })
     
