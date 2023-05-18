@@ -1,9 +1,11 @@
 import {Server} from "socket.io"
+
+
 const io=new Server(3001, {
-    cors: {
-        origin: "*"
-    }
-})
+        cors: {
+            origin: "*"
+        }
+    })
 
 io.on("connection", socket => {
     console.log(`⚡: ${socket.id} user just connected`)
@@ -11,4 +13,3 @@ io.on("connection", socket => {
         socket.broadcast.emit("response", data)
     })
 })
-

@@ -11,8 +11,8 @@
             const button = document.querySelector("button")
             const header = document.querySelector("#header")
 
-            const socket = io("https://squisita.onrender.com")
-            socket.on("response", data => {
+            const socket = io("https://squisita-ws.onrender.com")
+            socket.on("response", data => { 
                 alert(data)
             })
         </script>
