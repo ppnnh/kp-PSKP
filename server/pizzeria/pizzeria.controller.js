@@ -55,9 +55,9 @@ async function addPizzeria (req,resp){
     else {
         await pizzeria.create({
             data:{
-                name: newDrink.name,
-                address: newDrink.address,
-                image: newDrink.image
+                name: newPizzeria.name,
+                address: newPizzeria.address,
+                image: newPizzeria.image
             }
         })
         resp.redirect(303,"/pizzeria")
