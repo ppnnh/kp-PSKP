@@ -7,6 +7,8 @@ body{
 }
 #main{
   background-color: #d4d29692;
+      margin-top: 0;
+     margin-left: 0;
 }
 .container{
     display: flex;
