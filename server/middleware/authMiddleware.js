@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import cookies from 'js-cookie'
-import AppError from '../errors/AppError.js'
+import AppError from '../errors/appError.js'
 
 const auth = (req, res, next) => {
     try {
