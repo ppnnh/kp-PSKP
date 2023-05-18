@@ -4,6 +4,7 @@ body{
     background-image: url("/static/background.jpg");
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin:0;
+    color: white
 }
 #div{
   background-color: #d4d29692;
@@ -29,6 +30,10 @@ body{
     height: 420px;
     margin: 5px;
     background-color: #d4d296e3;
+    color: black
+}
+#pizzeriaItem{
+  color: black;
 }
 
 input{
