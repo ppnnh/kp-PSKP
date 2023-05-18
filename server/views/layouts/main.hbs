@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../../static/css/style.css">
+        <script src="/static/script/clearCart.js"></script>
+        <script>
+            const notify = document.querySelector("#notification")
+            const message = document.querySelector("#message")
+            const button = document.querySelector("button")
+            const header = document.querySelector("#header")
+
+            const socket = io("http://localhost:3001")
+            socket.on("response", data => {
+                alert(data)
+            })
+        </script>
+    </head>
+    <body>
+        {{>menu}}
+        {{{body}}}
+        {{>footer}}
+    </body>
+</html>

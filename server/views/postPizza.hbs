@@ -1,0 +1,17 @@
+<div>
+<form method="POST" action="/pizza" enctype="multipart/form-data">
+    <input type='text' name="name" value="{{name}}" placeholder="name" required>
+    <input type='number' name="weight" value="{{weight}}" placeholder="weight" required>
+    <input type='number' name="size" value="{{size}}" placeholder="size" required>
+    <input type='number' name="price" value="{{price}}" placeholder="price" required>
+    <input type='file' name="image" value="{{image}}" placeholder="image" required>
+
+    {{#each ingredient}}
+    <input class="checkbox" type="checkbox" id="{{this.name}}" name="{{this.name}}" value="{{this.id}}">
+    <label for="{{this.name}}">{{this.name}}</label>
+
+    {{/each}}
+<button type="submit">Send</button>
+
+</form>
+</div>

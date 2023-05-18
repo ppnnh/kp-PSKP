@@ -1,0 +1,27 @@
+<div>
+	<select id="selectID">
+		<option value="name">name</option>
+		<option value="weight">weight</option>
+		<option value="size">size</option>
+		<option value="price">price</option>
+	</select>
+	<form>
+      <input class="place_for_search" type="text" id="inputSearch" value="" placeholder="Search" autofocus> 
+     </form>
+</div>
+
+<script src="/static/script/search.js"></script>
+<script src="/static/script/addToCart.js"></script>
+<div class="container" id="container"> 
+			{{#each data}}
+			<div class="pizzaItem"  id="pizzaItem{{id}}">
+				<img  onclick="location.href=`/pizza/{{id}}`" id="image" width="200" src={{image}}>
+				<h3 id="name">{{name}}</h3>
+				<p id="weight">{{weight}} g.</p>
+				<p id="size">{{size}} sm.</p>
+				<p id="price">{{price}} rub.</p>
+				<button class="addToCart" onclick="addPizzaToCart({{id}})">Add to cart</button>
+			</div>
+			
+			{{/each}}
+</div>

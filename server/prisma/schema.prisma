@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model client {
+  id          Int     @id @default(autoincrement())
+  email       String  @unique
+  password    String
+  role        String  @default("user")
+  order       order[]
+}
+
+model drink {
+  id           Int            @id @default(autoincrement())
+  name         String
+  volume       Float
+  price        Float
+  image        String
+  drinkToorder itemDrink[]
+  pizzeria     pizzeria[]     @relation("drinkTopizzeria")
+}
+
+model ingredient {
+  id     Int     @id @default(autoincrement())
+  name   String
+  weight Float
+  price  Float
+  image  String
+  pizza  pizza[] @relation("ingredientTopizza")
+}
+
+model order {
+  id           Int            @id @default(autoincrement())
+  date         DateTime       @default(now())
+  clientId     Int?
+  totalPrice   Float
+  drinkToorder itemDrink[]
+  orderTopizza itemPizza[]
+  client       client?        @relation(fields: [clientId], references: [id])
+}
+
+model pizza {
+  id           Int            @id @default(autoincrement())
+  name         String
+  weight       Float
+  price        Float
+  image        String
+  size         Int
+  orderTopizza itemPizza[]
+  ingredient   ingredient[]   @relation("ingredientTopizza")
+  pizzeria     pizzeria[]     @relation("pizzaTopizzeria")
+}
+
+model pizzeria {
+  id      Int     @id @default(autoincrement())
+  name    String
+  address String
+  image   String
+  drink   drink[] @relation("drinkTopizzeria")
+  pizza   pizza[] @relation("pizzaTopizzeria")
+}
+
+model itemDrink {
+  id          Int     @id @default(autoincrement())
+  A           Int
+  B           Int
+  quantity    Int     @default(1)
+  totalPrice  Float
+  drink    drink @relation(fields: [A], references: [id], onDelete: Cascade)
+  order    order @relation(fields: [B], references: [id], onDelete: Cascade)
+
+  @@unique([A, B], map: "itemDrink_AB_unique")
+  @@index([B], map: "itemDrink_B_index")
+  @@map("itemDrink")
+}
+
+model itemPizza {
+  id          Int     @id @default(autoincrement())
+  A           Int
+  B           Int
+  quantity    Int     @default(1)
+  totalPrice  Float
+  order    order @relation(fields: [A], references: [id], onDelete: Cascade)
+  pizza    pizza @relation(fields: [B], references: [id], onDelete: Cascade)
+
+  @@unique([A, B], map: "itemPizza_AB_unique")
+  @@index([B], map: "itemPizza_B_index")
+  @@map("itemPizza")
+}

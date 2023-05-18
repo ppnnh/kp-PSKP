@@ -1,0 +1,16 @@
+<div class="container"> 
+			{{#each data}}
+			<div class="pizzeriaItem" onclick="location.href=`/pizzeria/{{id}}`">
+				<img width="400" src={{image}}>
+				<h3>{{name}}</h3>
+				<p>{{address}}</p>
+				{{#each pizza}}
+				<span>{{this.name}}</span>
+				{{/each}}
+				</br>
+				{{#each drink}}
+				<span>{{this.name}}</span>
+				{{/each}}
+			</div>
+			{{/each}}
+</div>

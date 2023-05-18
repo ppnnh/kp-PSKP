@@ -1,0 +1,27 @@
+<script src="/static/script/constructor.js">
+</script>
+<div style="display: flex">
+    <div id="ingredients">
+    <ul id="item">
+        {{#each data}}
+        <li id="item">
+            <button id="constructor" class={{name}} onclick="deleteIngredient(this)">-</button>
+            <label id="name">{{name}}</label>
+            <button id="constructor" class={{name}} onclick="insertIngredient(this)">+</button>
+            <span id="price {{name}}">{{price}} rub.</span>
+            <span id="weight {{name}}">{{weight}} g.</span>
+        </li>
+        {{/each}}
+
+    </ul>
+    </div>
+    <div>
+    <img id="base" style="position:absolute" width="300px" src="/static/ingredient/base.png">
+    </div>
+    
+</div>
+<div>
+        <span id="totalPrice">Price: 5</span>
+        <span id="totalWeight">Weight: 100</span>
+</div>
+

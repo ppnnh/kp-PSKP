@@ -1,0 +1,23 @@
+<script src="/static/script/putPizzeria.js" type="module"></script>
+
+<div class="container" > 
+				<input id="id" value="{{id}}" disabled></input>
+
+			<div  id='count'>
+
+				<input type="text" name="name" value="{{name}}" required>
+				<input type="text" name="address" value="{{address}}" required>
+
+				
+			</div>
+			Pizzas: 
+				
+				<select id="selectPizza">
+					{{#each pizza}}
+					<option value="{{this.id}}">{{this.name}}</option>
+					{{/each}}
+				</select>
+				
+				<button>Send</button>
+
+</div>

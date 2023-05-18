@@ -1,0 +1,38 @@
+<div id="orderItem">
+    {{#if orders includeZero=false}}
+    <h2>PIZZA</h2>
+    {{#each orders}}
+        <p>Total price of order: {{this}}</p>
+            {{#each orderTopizza}}
+                {{#with pizza}}
+                
+                    <p>Name: {{name}}</p>
+                    <img height="200" src="{{image}}">
+                    <p>Price: {{price}}</p>
+
+                {{/with}}
+                <p>Quantity: {{quantity}}</p>
+            {{/each}}
+    {{/each}}
+
+    <h2>DRINK</h2>
+    {{#each orders}}
+            {{#each drinkToorder}}
+                {{#with drink}}
+                    
+                    <p>Name: {{name}}</p>
+                    <img height="200" src="{{image}}">
+                    <p>Price: {{price}}</p>
+
+                {{/with}}
+                <p>Quantity: {{quantity}}</p>
+            {{/each}}
+        <p>Total price of order: {{totalPrice}}</p>
+
+    {{/each}}
+    
+    {{else}}
+    <h2>There are no orders</h2>
+    {{/if}}
+
+</div>

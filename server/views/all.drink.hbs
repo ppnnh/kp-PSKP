@@ -1,0 +1,13 @@
+<script src="/static/script/addToCart.js"></script>
+<div class="container"> 
+			{{#each data}}
+			<div class="drinkItem" id="drinkItem{{id}}">
+				<img height="200px"  src={{image}}  onclick="location.href=`/drink/{{id}}`">
+				<h3>{{name}}</h3>
+				<p>{{volume}} l.</p>
+                <p>{{price}} rub.</p>
+				<button class="addToCart"onclick="addDrinkToCart({{id}})">Add to cart</button>
+			</div>
+			
+			{{/each}}
+</div>

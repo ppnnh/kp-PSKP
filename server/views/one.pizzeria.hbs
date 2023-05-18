@@ -1,0 +1,26 @@
+<div class="container" > 
+			<div>
+				<img width="400" src={{image}}>
+				<h3>{{name}}</h3>
+				<p>{{address}}</p>
+				Pizzas: 
+				<ul>
+				{{#each pizza}}
+				<li>{{this.name}}</li>
+				{{/each}}
+				</ul>
+				
+				</br>
+				Drinks: 
+				<ul>
+				{{#each drink}}
+				<li>{{this.name}}</splian>
+				{{/each}}
+				</ul>
+			</div>
+			<div>
+			<a id="link" href="/pizzeria/pizza/{{id}}">post pizza</a>
+			</div>
+			
+			
+</div>

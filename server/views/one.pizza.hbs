@@ -1,0 +1,25 @@
+<div class="container" > 
+			<div>
+				<img width="200" src={{image}}>
+				<h3>{{name}}</h3>
+				<p>
+				<span>{{weight}} g.</span>
+				<span>{{size}} sm.</span>
+				</p>
+				<p>{{price}} rub.</p>
+				Structure:
+				<ul>
+				{{#each ingredient}}
+				<li>{{this.name}}</li>
+				{{/each}}
+				</ul>
+				
+			</div>
+			<div>
+			<a id="link" href="/post/pizza">post</a>
+			</br>
+			<a id="link" href="/update/pizza/{{id}}">update</a>
+			</br>
+			<a id="link" href="/delete/pizza/{{id}}">delete</a>
+			</div>
+</div>
