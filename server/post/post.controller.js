@@ -22,5 +22,13 @@ async function postDrink (req,resp){
     })
  }
 
+ async function postPizzeria (req,resp){
+    resp.render("postPizzeria.hbs",{
+        name: "",
+        address: "",
+        image: ""
+    })
+ }
 
-export default {postPizza, postDrink}
+
+export default {postPizza, postDrink, postPizzeria}

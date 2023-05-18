@@ -8,5 +8,6 @@ router.get("/", authMiddleware, pizzeriaController.getAll)
 router.get("/:id", authMiddleware, pizzeriaController.getUnique)
 router.put("/:id", authMiddleware, adminMiddleware, pizzeriaController.updatePizzeria)
 router.get("/pizza/:id", authMiddleware, adminMiddleware, pizzeriaController.getPizzaToAdd)
+router.post("/pizzeria", authMiddleware, adminMiddleware, pizzeriaController.addPizzeria)
 
 export default router 

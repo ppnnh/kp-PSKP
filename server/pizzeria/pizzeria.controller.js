@@ -1,4 +1,8 @@
 import prisma from "../index.js"
+import { v4 as uuidv4 } from 'uuid';
+import path from 'path'
+
+const __dirname = path.resolve(path.dirname(''));
 const pizzeria=prisma.pizzeria
 
 async function getAll (req,resp){
@@ -27,6 +31,38 @@ async function getUnique (req,resp){
     }
 }
 
+async function addPizzeria (req,resp){
+    console.log(req.files)
+    console.log(req.body)
+    const {image} = req.files
+    const fileName = uuidv4() + '.png';
+    image.mv(path.resolve(__dirname, '.', 'src/pizzeria', fileName));
+
+    const newPizzeria={
+            name: req.body.name,
+            address: req.body.address,
+            image: `/static/pizzeria/${fileName}`
+    }
+    let pizzerias=await pizzeria.findFirst({
+        where:{
+            name: newDrink.name
+        }
+    })
+    
+    if (pizzerias){
+        resp.render("error.hbs",{error: "Pizzeria is already exist"})
+    }
+    else {
+        await pizzeria.create({
+            data:{
+                name: newDrink.name,
+                address: newDrink.address,
+                image: newDrink.image
+            }
+        })
+        resp.redirect(303,"/pizzeria")
+    }
+}
 
 async function updatePizzeria (req,resp){
     const newPizzeria={
@@ -82,4 +118,4 @@ async function getPizzaToAdd (req,resp){
     }
 }
 
-export default {getAll,getUnique,getPizzaToAdd, updatePizzeria}
+export default {getAll,getUnique,getPizzaToAdd, updatePizzeria, addPizzeria}

@@ -6,5 +6,6 @@ let router=express.Router()
 
 router.get("/pizza", authMiddleware, adminMiddleware, postController.postPizza)
 router.get("/drink", authMiddleware, adminMiddleware, postController.postDrink)
+router.get("/pizzeria", authMiddleware, adminMiddleware, postController.postPizzeria)
     
 export default router
