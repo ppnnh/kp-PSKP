@@ -20,7 +20,16 @@ body{
     border: 2px black solid;
     border-radius: 10px 10px 10px 10px;
     width: 400px;
+    background-color: #d4d296e3;
+
     height: 400px;
+    margin: 5px;
+}
+.constructor{
+  border: 2px black solid;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #d4d296e3;
+
     margin: 5px;
 }
 .pizzaItem, .drinkItem{
