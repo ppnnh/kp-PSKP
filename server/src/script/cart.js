@@ -66,7 +66,7 @@ async function order(){
     "totalPrice": totalPrice
   }
   console.log(JSON.stringify(data))
-  fetch("http://localhost:3000/order",{
+  fetch("/order",{
     method: "POST",
     headers:{
       "Content-Type":"application/json",
