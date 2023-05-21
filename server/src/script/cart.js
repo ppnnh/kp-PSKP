@@ -44,7 +44,9 @@ async function order(){
   let pizza=JSON.parse(localStorage.getItem("pizza"))
   let drink=JSON.parse(localStorage.getItem("drink"))
   let totalPrice=document.getElementById("totalPrice").innerText.split(" ")[4]
-
+  let idPizzeria=document.getElementById("selectPizzeria").value
+  // let array=[]
+  // array.push(+idPizzeria)
   let orderToPizza=pizza.map(el=>{
     return new Object({
       "B":el.id,
@@ -63,7 +65,8 @@ async function order(){
   let data={
     "orderTopizza":orderToPizza,
     "drinkToorder": drinkToorder,
-    "totalPrice": totalPrice
+    "totalPrice": totalPrice,
+    "pizzeria":idPizzeria
   }
   console.log(JSON.stringify(data))
   fetch("/order",{

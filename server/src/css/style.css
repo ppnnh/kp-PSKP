@@ -45,6 +45,10 @@ body{
   color: black;
 }
 
+.ingresientPizza{
+visibility: hidden;
+}
+
 input{
     margin-left: 30px;
     margin-right: 900px;

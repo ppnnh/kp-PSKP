@@ -17,6 +17,12 @@ async function getAll (req,resp){
 }
 
 async function getUnique (req,resp){
+    let admin
+    if (req.user.role=="admin"){
+            admin=true
+    } else{
+            admin=false
+    }
     const id=req.params.id
     let pizzerias=await pizzeria.findUnique({
         where: {
@@ -27,7 +33,7 @@ async function getUnique (req,resp){
     if (!pizzerias){
         resp.render("error.hbs",{error: "Pizzeria is not found"})
     } else {
-        resp.render("one.pizzeria.hbs",{data: pizzerias,id: pizzerias.id, name: pizzerias.name, address: pizzerias.address, image: pizzerias.image, pizza: pizzerias.pizza, drink: pizzerias.drink })
+        resp.render("one.pizzeria.hbs",{admin:admin,data: pizzerias,id: pizzerias.id, name: pizzerias.name, address: pizzerias.address, image: pizzerias.image, pizza: pizzerias.pizza, drink: pizzerias.drink })
     }
 }
 

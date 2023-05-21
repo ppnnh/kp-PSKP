@@ -1,8 +1,13 @@
 <div id="orderItem">
     {{#if orders includeZero=false}}
-    <h2>PIZZA</h2>
+    
     {{#each orders}}
-        <p>Total price of order: {{this}}</p>
+        <h1>ORDER</h1>
+        <p>Total price of order: {{this.totalPrice}}</p>
+		<p>Status of order: {{this.status}}</p>
+        <p> Pizzeria:     {{this.pizzeria.address}}</p>
+        <h2>PIZZA</h2>
+
             {{#each orderTopizza}}
                 {{#with pizza}}
                 
@@ -13,10 +18,8 @@
                 {{/with}}
                 <p>Quantity: {{quantity}}</p>
             {{/each}}
-    {{/each}}
 
-    <h2>DRINK</h2>
-    {{#each orders}}
+            <h2>DRINK</h2>
             {{#each drinkToorder}}
                 {{#with drink}}
                     
@@ -27,7 +30,11 @@
                 {{/with}}
                 <p>Quantity: {{quantity}}</p>
             {{/each}}
-        <p>Total price of order: {{totalPrice}}</p>
+    {{/each}}
+
+    
+    {{#each orders}}
+            
 
     {{/each}}
     

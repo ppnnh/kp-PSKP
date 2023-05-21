@@ -2,7 +2,6 @@ import prisma from "../index.js"
 const client=prisma.client
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import AppError from '../errors/appError.js'
 
 const makeJwt = (id, email, role) => {
     return jwt.sign(
@@ -35,13 +34,11 @@ async function signup(req, res, next) {
 async function login(req, res, next) {
     try {
         const {email, password} = req.body
-        // const user = await client.getByEmail(email)
         const user=await client.findFirst({
             where:{
                 email:email
             }
         })
-
         let compare = bcrypt.compareSync(password, user.password)
         if (!compare) {
             throw new Error('Incorrect password')

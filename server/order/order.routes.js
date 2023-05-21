@@ -7,5 +7,7 @@ let router=express.Router()
 
 router.post("/", authMiddleware, orderController.addOrder)
 router.get("/", authMiddleware, orderController.getOrders)
+router.put('/:id', authMiddleware, orderController.completeOrder);
+
     
 export default router

@@ -6,16 +6,28 @@ const __dirname = path.resolve(path.dirname(''));
 const drink=prisma.drink
 
 async function getAll (req,resp){
+    let admin
+    if (req.user.role=="admin"){
+        admin=true
+    } else{
+        admin=false
+    }
     let drinks=await drink.findMany()
     if (!drinks){
         resp.render("error.hbs",{error: "Drinks are not found"})
     }
     else {
-        resp.render("all.drink.hbs",{data: drinks,id: drinks.id, name: drinks.name, image: drinks.image, volume: drinks.volume, price: drinks.price})
+        resp.render("all.drink.hbs",{admin: admin,data: drinks,id: drinks.id, name: drinks.name, image: drinks.image, volume: drinks.volume, price: drinks.price})
     }
 }
 
 async function getUnique (req,resp){
+    let admin
+    if (req.user.role=="admin"){
+        admin=true
+    } else{
+        admin=false
+    }
     const id=req.params.id
     let drinks=await drink.findUnique({
         where: {
@@ -26,7 +38,7 @@ async function getUnique (req,resp){
         resp.render("error.hbs",{error: "Drink is not found"})
     }
     else {
-        resp.render("one.drink.hbs",{data: drinks,id: drinks.id, name: drinks.name, image: drinks.image, price: drinks.price, volume: drinks.volume})
+        resp.render("one.drink.hbs",{admin: admin,data: drinks,id: drinks.id, name: drinks.name, image: drinks.image, price: drinks.price, volume: drinks.volume})
     }
 }
 

@@ -38,10 +38,13 @@ model order {
   id           Int            @id @default(autoincrement())
   date         DateTime       @default(now())
   clientId     Int?
+  pizzeriaId   Int?
+  status        String        @default("Not ready")
   totalPrice   Float
   drinkToorder itemDrink[]
   orderTopizza itemPizza[]
   client       client?        @relation(fields: [clientId], references: [id])
+  pizzeria     pizzeria?      @relation(fields: [pizzeriaId], references: [id])
 }
 
 model pizza {
@@ -63,6 +66,7 @@ model pizzeria {
   image   String
   drink   drink[] @relation("drinkTopizzeria")
   pizza   pizza[] @relation("pizzaTopizzeria")
+  order   order[] 
 }
 
 model itemDrink {

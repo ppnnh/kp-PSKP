@@ -6,7 +6,9 @@
 				<h3>{{name}}</h3>
 				<p>{{volume}} l.</p>
                 <p>{{price}} rub.</p>
+				{{#unless admin}}
 				<button class="addToCart"onclick="addDrinkToCart({{id}})">Add to cart</button>
+				{{/unless}}
 			</div>
 			
 			{{/each}}

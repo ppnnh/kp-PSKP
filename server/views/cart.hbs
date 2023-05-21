@@ -1,5 +1,7 @@
 <script src="/static/script/cart.js"></script>
-
+{{#if admin}}
+<h1>You're the admin. You can't order </h1>
+{{else}}
 <div>
     <h1>CART</h1>
     <div id="cart">
@@ -8,7 +10,16 @@
     <h2>DRINK</h2>
     <div id="drink"></div>
     <div id="totalPrice"></div>
+     Pizzerias: 
+				
+    <select id="selectPizzeria">
+        {{#each data}}
+        <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
     </div>
 
+   
     <button onclick="order()">Order</button>
 </div>
+{{/if}}

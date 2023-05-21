@@ -1,0 +1,46 @@
+<script src='/static/script/updateOrder.js'></script>
+<div id='orderItem'>
+	{{#if orders includeZero=false}}
+
+		{{#each orders}}
+        <h1>ORDER</h1>
+
+		<p>Total price of order: {{totalPrice}}</p>
+		<p>Status of order: {{status}}</p>
+        <p> Pizzeria:     {{this.pizzeria.address}}</p>
+		<p>Id:{{id}}</p>
+
+		<h2>PIZZA</h2>
+			{{#each orderTopizza}}
+				{{#with pizza}}
+
+					<p>Name: {{name}}</p>
+					<img height='200' src='{{image}}' />
+					<p>Price: {{price}}</p>
+
+				{{/with}}
+				<p>Quantity: {{quantity}}</p>
+			{{/each}}
+		{{/each}}
+
+		<h2>DRINK</h2>
+		{{#each orders}}
+			{{#each drinkToorder}}
+				{{#with drink}}
+
+					<p>Name: {{name}}</p>
+					<img height='200' src='{{image}}' />
+					<p>Price: {{price}}</p>
+
+				{{/with}}
+				<p>Quantity: {{quantity}}</p>
+			{{/each}}
+			
+			<button onclick='updateOrder({{id}})'>Complete order</button>
+		{{/each}}
+
+	{{else}}
+		<h2>There are no orders</h2>
+	{{/if}}
+
+</div>

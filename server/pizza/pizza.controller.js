@@ -5,17 +5,31 @@ const __dirname = path.resolve(path.dirname(''));
 const pizza=prisma.pizza
 
 async function getAll (req,resp){
-    let pizzas=await pizza.findMany()
+    let admin
+    if (req.user.role=="admin"){
+        admin=true
+    } else{
+        admin=false
+    }
+    let ingredients=await prisma.ingredient.findMany()
+    let pizzas=await pizza.findMany({include:{ingredient:true}})
     if (!pizzas){
         resp.render("error.hbs",{error: "Pizzas are not found"})
     }
     else {
-        resp.render("all.pizzas.hbs",{data: pizzas,id: pizzas.id, name: pizzas.name, image: pizzas.image, size: pizzas.size, price: pizzas.price, weight: pizzas.weight})
+        resp.render("all.pizzas.hbs",{ingredient: ingredients,admin: admin,data: pizzas,id: pizzas.id, name: pizzas.name, image: pizzas.image, size: pizzas.size, price: pizzas.price, weight: pizzas.weight})
     }
 }
 
 async function getUnique (req,resp){
     const id=req.params.id
+    let admin
+    if (req.user.role=="admin"){
+        admin=true
+    } else{
+        admin=false
+    }
+
     let pizzas=await pizza.findUnique({
         include: {
             ingredient: true
@@ -28,11 +42,17 @@ async function getUnique (req,resp){
         resp.render("error.hbs",{error: "Pizza is not found"})
     }
     else {
-        resp.render("one.pizza.hbs",{data: pizzas,id: pizzas.id, name: pizzas.name, image: pizzas.image, size: pizzas.size, price: pizzas.price, weight: pizzas.weight, ingredient:pizzas.ingredient})
+        resp.render("one.pizza.hbs",{admin: admin,data: pizzas,id: pizzas.id, name: pizzas.name, image: pizzas.image, size: pizzas.size, price: pizzas.price, weight: pizzas.weight, ingredient:pizzas.ingredient})
     }
 }
 
 async function addPizza (req,resp){
+    let admin
+    if (req.user.role=="admin"){
+        admin=true
+    } else{
+        admin=false
+    }
     console.log(req.body)
     console.log(req.files)
     var clone = Object.assign({},req.body)
@@ -85,6 +105,12 @@ async function addPizza (req,resp){
 }
 
 async function updatePizza (req,resp){
+    let admin
+    if (req.user.role=="admin"){
+        admin=true
+    } else{
+        admin=false
+    }
     const newPizza={
         name: req.body.name,
         size: +req.body.size,
@@ -117,6 +143,12 @@ async function updatePizza (req,resp){
 }
 
 async function deletePizza (req,resp){
+    let admin
+    if (req.user.role=="admin"){
+        admin=true
+    } else{
+        admin=false
+    }
     let pizzas=await pizza.delete({
         where: {
             id: +req.params.id
