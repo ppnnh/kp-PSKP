@@ -3,7 +3,7 @@ import prisma from '../index.js';
 async function addOrder(req, resp) {
 	try {
 		console.log(req.body);
-		const { orderTopizza, drinkToorder, totalPrice } = req.body;
+		const { orderTopizza, drinkToorder, totalPrice, pizzeria } = req.body;
 		console.log(drinkToorder);
 		const order = await prisma.order.create({
 			data: {
@@ -19,6 +19,11 @@ async function addOrder(req, resp) {
 						id: req.user.id,
 					},
 				},
+				pizzeria: {
+					connect: {
+						id: +pizzeria,
+					},
+				}
 			},
 		});
 		resp.json(order);
