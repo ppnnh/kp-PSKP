@@ -4,7 +4,7 @@ body{
     background-image: url("/static/background.jpg");
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin:0;
-    color: white
+    color: black
 }
 #div{
   background-color: #d4d29692;
@@ -19,14 +19,13 @@ body{
 .pizzeriaItem{
     border: 2px black solid;
     border-radius: 10px 10px 10px 10px;
-    width: 400px;
     background-color: #d4d296e3;
+    color: black;
 
-    height: 400px;
     margin: 5px;
 }
 .constructor{
-  border: 2px black solid;
+    border: 2px black solid;
     border-radius: 10px 10px 10px 10px;
     background-color: #d4d296e3;
 
@@ -39,11 +38,23 @@ body{
     height: 420px;
     margin: 5px;
     background-color: #d4d296e3;
-    color: black
+    color: black;
 }
-#pizzeriaItem{
+#pizzaItem, #drinkItem{
+  border: 2px black solid;
+  border-radius: 10px 10px 10px 10px;
+  margin: 5px;
+  background-color: #d4d296e3;
   color: black;
 }
+#orderItem{
+  color: black;
+  border: 2px black solid;
+  margin: 5px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #d4d296e3;
+}
+
 
 .ingresientPizza{
 visibility: hidden;
@@ -127,6 +138,12 @@ a {
     margin-right: 0;
     width: 16%;
   }
+  .constructor{
+    margin: 5px;
+    color: black;
+    width: 84%;
+  }
+
 
   #ingredients{
       width: 22%;
@@ -134,7 +151,15 @@ a {
 
   #profile{
     display: block;
-    width: 16%;
+    width: 26%;
+    background: rgba(255, 255, 255, 0.442);
+  }
+  #cartItem{
+    background: rgba(255, 255, 255, 0.442);
+    display: block;
+    width: 36%;
+  }
+  #search{
     background: rgba(255, 255, 255, 0.442);
   }
   p, h3, img{

@@ -53,7 +53,8 @@ async function getOrders(req, resp) {
 				id: true,
 				totalPrice: true,
 				status: true,
-                pizzeria: true
+                pizzeria: true,
+				date: true
 			},
 		});
 		if (!adminOrders) {
