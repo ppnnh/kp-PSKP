@@ -6,8 +6,8 @@
         <p>Total price of order: {{this.totalPrice}}</p>
 		<p>Status of order: {{this.status}}</p>
         <p> Pizzeria:     {{this.pizzeria.address}}</p>
+        {{#if orderTopizza includeZero=false}}
         <h2>PIZZA</h2>
-
             {{#each orderTopizza}}
                 {{#with pizza}}
                 
@@ -18,7 +18,8 @@
                 {{/with}}
                 <p>Quantity: {{quantity}}</p>
             {{/each}}
-
+        {{/if}}
+        {{#if drinkToorder includeZero=false}}
             <h2>DRINK</h2>
             {{#each drinkToorder}}
                 {{#with drink}}
@@ -30,6 +31,7 @@
                 {{/with}}
                 <p>Quantity: {{quantity}}</p>
             {{/each}}
+        {{/if}}   
     {{/each}}
 
     

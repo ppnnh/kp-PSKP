@@ -89,6 +89,7 @@ async function getOrders(req, resp) {
             pizzeria: true
 		},
 	});
+	console.log(orders)
 	if (!orders) {
 		resp.render('error.hbs', { error: 'There are no orders' });
 	} else {

@@ -36,8 +36,6 @@
       document.getElementById("drink").innerHTML="There are no drinks"
     }
     document.getElementById("totalPrice").innerHTML=`Total price of cart: ${n+d}`
-
-  
 }
 
 async function order(){
@@ -47,21 +45,32 @@ async function order(){
   let idPizzeria=document.getElementById("selectPizzeria").value
   // let array=[]
   // array.push(+idPizzeria)
-  let orderToPizza=pizza.map(el=>{
-    return new Object({
-      "B":el.id,
-      "quantity":el.quantity,
-      "totalPrice":el.price
+  let orderToPizza
+  if (pizza==null){
+    orderToPizza=undefined
+  } else{
+    orderToPizza=pizza.map(el=>{
+      return new Object({
+        "B":el.id,
+        "quantity":el.quantity,
+        "totalPrice":el.price
+      })
     })
-  })
-
-  let drinkToorder=drink.map(el=>{
-    return new Object({
-      "A":el.id,
-      "quantity":el.quantity,
-      "totalPrice":el.price
+  }
+  
+  let drinkToorder
+  if (drink==null){
+    drinkToorder=undefined
+  } else {
+    drinkToorder=drink.map(el=>{
+      return new Object({
+        "A":el.id,
+        "quantity":el.quantity,
+        "totalPrice":el.price
+      })
     })
-  })
+  }
+  
   let data={
     "orderTopizza":orderToPizza,
     "drinkToorder": drinkToorder,
