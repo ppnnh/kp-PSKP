@@ -88,6 +88,7 @@ async function order(){
   }).then(data=>{
     localStorage.clear()
     document.getElementById("cart").innerHTML="Cart is empty"
+    document.getElementById("totalPrice").innerHTML="Total price of cart: 0"
   }).catch(err=>{
     console.log(err)
   })
