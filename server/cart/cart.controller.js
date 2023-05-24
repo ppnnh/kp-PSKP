@@ -1,5 +1,6 @@
 import prisma from "../index.js"
 import { LocalStorage} from "node-localstorage"
+// import { cookie } from "express/lib/response"
 
 async function Cart (req, resp){
         let admin
@@ -8,33 +9,35 @@ async function Cart (req, resp){
         } else{
                 admin=false
         }
-        // let pizza=req.headers.Pizza
-        // let drink=req.headers.Drink
-        // console.log(pizza)
-        // let arrayPizza=[]
-        // let arrayDrink=[]
-        // let pizzaItems=JSON.parse(pizza)
-        // for (let i=0;i<pizzaItems.length;i++){
-        //         arrayPizza.push(pizzaItems[i].id)
-        // }
-        // let drinkItems=JSON.parse(drink)
-        // for (let i=0;i<drinkItems.length;i++){
-        //         arrayDrink.push(drinkItems[i].id)
-        // }
+        // let pizza=req.cookies.pizza
+        // let drink=req.cookies.drink
+
+        // let arrayPizza=pizza.replace(/\D/g, " ").split(' ').map(Number).filter(function(item) {
+        //         return item !== 0})
+        // let arrayDrink=drink.replace(/\D/g, " ").split(' ').map(Number).filter(function(item) {
+        //         return item !== 0})
+        
         let pizzerias=await prisma.pizzeria.findMany({
-        //        include:{
-        //               pizza:{
-        //                 select:{id: true}
-        //               },
-        //               drink:{
-        //                       select:{id: true}
-        //               }
-        //        },
+               include:{
+                      pizza:{
+                        select:{id: true}
+                      },
+                      drink:{
+                              select:{id: true}
+                      }
+               },
         //        where:{
         //                 pizza:{
-        //                         some:{
-        //                                 id: {in: arrayPizza}}
-        //                 },
+        //                        some:{
+        //                                AND:[{
+        //                                        id: arrayPizza[0]
+        //                                },
+        //                                 {
+        //                                         id: arrayPizza[1]
+        //                                 }]
+        //                        }
+        //                 }
+        //                 ,
         //                 drink:{
         //                         some:{
         //                                 id: {in: arrayDrink}}

@@ -87,6 +87,9 @@ async function order(){
     body: JSON.stringify(data)
   }).then(data=>{
     localStorage.clear()
+    // document.cookie="pizza"+"="+""+";"+'max-age'+"="+"-1"
+    // document.cookie="drink"+"="+""+";"+'max-age'+"="+"-1"
+
     document.getElementById("cart").innerHTML="Cart is empty"
     document.getElementById("totalPrice").innerHTML="Total price of cart: 0"
   }).catch(err=>{
