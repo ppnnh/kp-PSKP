@@ -1,25 +1,32 @@
-<script src="/static/script/cart.js"></script>
+<script src='/static/script/cart.js'></script>
 {{#if admin}}
-<h1 id="cartItem">You're the admin. You can't order </h1>
+	<h1 id='cartItem'>You're the admin. You can't order </h1>
 {{else}}
-<div id="cartItem">
-    <h1>CART</h1>
-    <div id="cart">
-    <h2>PIZZA</h2>
-    <div id="pizza"></div>
-    <h2>DRINK</h2>
-    <div id="drink"></div>
-    <div id="totalPrice"></div>
-     Pizzerias: 
-				
-    <select id="selectPizzeria">
-        {{#each data}}
-        <option value="{{this.id}}">{{this.name}}</option>
-        {{/each}}
-    </select>
-    </div>
+	<h1>CART</h1>
+	<div id='cartItem'>
+		<div id='cart-items-container'>
+			<div id='cart'>
+				<div id='pizza-container'>
+					<h2 class='cart-item-header'>PIZZA</h2>
+					<div id='pizza'></div>
+				</div>
+				<div id='drink-container'>
+					<h2 class='cart-item-header'>DRINK</h2>
+					<div id='drink'></div>
+				</div>
+			</div>
+			<div id='cart-params-container'>
+				<div id='totalPrice'></div>
+				<span class='cart-pizzerias'>Pizzerias:</span>
 
-   
-    <button onclick="order()">Order</button>
-</div>
+				<select id='selectPizzeria'>
+					{{#each data}}
+						<option value='{{this.id}}'>{{this.name}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+
+		<button class='cart-button' onclick='order()'>Order</button>
+	</div>
 {{/if}}

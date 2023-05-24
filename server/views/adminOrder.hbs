@@ -3,13 +3,13 @@
 	{{#if orders includeZero=false}}
 
 		{{#each orders}}
-        <h1>ORDER</h1>
-		<p>Total price of order: {{totalPrice}}</p>
-		<p>Status of order: {{status}}</p>
-        <p> Pizzeria:     {{this.pizzeria.address}}</p>
-		<p>Id:{{id}}</p>
+			<h1>ORDER</h1>
+			<p>Total price of order: {{totalPrice}}</p>
+			<p>Status of order: {{status}}</p>
+			<p> Pizzeria: {{this.pizzeria.address}}</p>
+			<p>Id:{{id}}</p>
 
-		<h2>PIZZA</h2>
+			<h2>PIZZA</h2>
 			{{#each orderTopizza}}
 				{{#with pizza}}
 
@@ -21,7 +21,7 @@
 				<p>Quantity: {{quantity}}</p>
 			{{/each}}
 
-		<h2>DRINK</h2>
+			<h2>DRINK</h2>
 			{{#each drinkToorder}}
 				{{#with drink}}
 
@@ -32,8 +32,8 @@
 				{{/with}}
 				<p>Quantity: {{quantity}}</p>
 			{{/each}}
-			
-			<button onclick='updateOrder({{id}})'>Complete order</button>
+
+			<button class='order-button' onclick='updateOrder({{id}})'>Complete order</button>
 		{{/each}}
 
 	{{else}}

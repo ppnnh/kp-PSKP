@@ -1,204 +1,345 @@
-/* W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes */
-
-body{
-    background-image: url("/static/background.jpg");
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin:0;
-    color: black
-}
-#div{
-  background-color: #d4d29692;
-      margin-top: 0;
-     margin-left: 0;
-     margin:0;
-}
-.container{
-    display: flex;
-    flex-wrap: wrap;
-}
-.pizzeriaItem{
-    border: 2px black solid;
-    border-radius: 10px 10px 10px 10px;
-    background-color: #d4d296e3;
-    color: black;
-
-    margin: 5px;
-}
-.constructor{
-    border: 2px black solid;
-    border-radius: 10px 10px 10px 10px;
-    background-color: #d4d296e3;
-
-    margin: 5px;
-}
-.pizzaItem, .drinkItem{
-    border: 2px black solid;
-    border-radius: 10px 10px 10px 10px;
-    width: 220px;
-    height: 420px;
-    margin: 5px;
-    background-color: #d4d296e3;
-    color: black;
-}
-#pizzaItem, #drinkItem{
-  border: 2px black solid;
-  border-radius: 10px 10px 10px 10px;
-  margin: 5px;
-  background-color: #d4d296e3;
-  color: black;
-}
-#orderItem{
-  color: black;
-  border: 2px black solid;
-  margin: 5px;
-  border-radius: 10px 10px 10px 10px;
-  background-color: #d4d296e3;
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
-
-.ingresientPizza{
-visibility: hidden;
-}
-
-input{
-    margin-left: 30px;
-    margin-right: 900px;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    border-radius: 10px 10px 10px 10px;
-    width: 150px;
-    height: 20px;
-    background-color: rgba(255, 255, 255, 0.442);
-}
-
-button{
-    margin-left: 30px;
-    margin-right: 400px;
-    margin-top: 15px;
-    border-radius: 10px 10px 10px 10px;
-    width: 150px;
-    height: 20px;
-    background-color: rgba(255, 255, 255, 0.625);
-}
-
-select{
-    margin-left: 30px;
-    margin-right: 400px;
-    border-radius: 10px 10px 10px 10px;
-    width: 150px;
-    height: 20px;
-    background-color: rgba(255, 255, 255, 0.625);
-}
-.checkbox{
-    margin-left: 30px;
-    margin-right: 0;
-    margin-top: 0;
-    width: 20px;
-    height: 20px;
-    background-color: rgba(255, 255, 255, 0.442);
-}
-
-#count{
-    width: 300px;
+body {
+	background-image: url('/static/background.jpg');
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	color: black;
+	width: 100%;
+	height: 100%;
+	color: white;
 }
 
 a {
-    outline: none;
-    text-decoration: none;
-    display: inline-block;
-    width: 10%;
-    margin-right: 0.625%;
-    text-align: center;
-    line-height: 3;
-    color: black;
-  }
-  
+	text-decoration: none;
+}
 
-  
-  a:link, a:visited, a:focus {
-    background: rgba(255, 255, 0, 0.564);
-  }
-  
-  a:hover {
-    background: orange;
-  }
-  
-  a:active {
-    background: red;
-    color: white;
-  }
+ul {
+	list-style: none;
+}
 
-  #link{
-      width: 100%;
-      margin-bottom: 10px;
-  }
+.overlay {
+	background-color: rgba(50, 50, 50, 0.6);
+	width: 100%;
+	height: 100%;
+	padding: 2px;
+}
+.ingredientPizza {
+	visibility: hidden;
+}
+.container {
+	display: flex;
+	flex-wrap: wrap;
+}
+#main a,
+#link {
+	border: 1px yellow solid;
+	border-radius: 8px;
+	padding: 4px 38px;
+	text-decoration: none;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	font-size: 24px;
+	position: relative;
+}
 
-  #constructor{
-    margin-left: 0;
-    margin-right: 0;
-    width: 16%;
-  }
-  .constructor{
-    margin: 5px;
-    color: black;
-    width: 84%;
-  }
+input {
+	border: none;
+	background-color: transparent;
+	border-bottom: 2px white solid;
+	cursor: pointer;
+	font-size: 24px;
+	outline: none;
+	color: white;
+	padding: 0 0 6px 8px;
+}
 
+input:hover {
+	border-bottom: 2px yellow solid;
+	transition: 0.8s;
+}
 
-  #ingredients{
-      width: 22%;
-  }
+input:hover::placeholder {
+	color: rgba(255, 255, 255, 0.8);
+	transition: 0.8s;
+}
 
-  #profile{
-    display: block;
-    width: 26%;
-    background: rgba(255, 255, 255, 0.442);
-  }
-  #cartItem{
-    background: rgba(255, 255, 255, 0.442);
-    display: block;
-    width: 36%;
-  }
-  #search{
-    background: rgba(255, 255, 255, 0.442);
-  }
-  p, h3, img{
-    display: block;
-    text-align: center;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  li {
-    padding: 5px 10px;
-    background-color: #ffe83c80;
-    border: 1px solid #DDDDDD;
-  }
-    img{
-        display:block;  
-        margin:auto;
-    }
-    #item{
-        padding: 0px 0px;
-        background-color: transparent;
-        border: none;
-    }
+#signUp form,
+#login form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
-  #main{
-        margin-top:20%;
-        margin-left: 46%;
-  }
+#signUp form input,
+#login form input {
+	margin: 20px 0;
+}
 
-   th, td {
-    border: 1px solid white;
-    border-collapse: collapse;
-  }
-  th, td {
-    background-color: #d4d296;
-  }
+button {
+	padding: 4px 0;
+	border-radius: 8px;
+	background-color: transparent;
+	padding: 6px 46px;
+	font-size: 24px;
+	color: white;
+	border: 1px yellow solid;
+	cursor: pointer;
+}
 
-  #hide{
-    visibility: hidden;
-    border: none;
-  }
+button:hover,
+#link:hover {
+	background-color: rgba(208, 236, 52, 0.3);
+	transition: 0.8s;
+}
+
+table {
+	text-align: center;
+}
+
+td {
+	padding: 0 20px;
+	font-size: 16px;
+}
+
+form button {
+	margin-top: 14px;
+}
+
+.menu {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: self-start;
+	width: 100%;
+	font-size: 24px;
+}
+
+.menu a {
+	color: white;
+}
+
+.menu a:hover {
+	color: yellow;
+	transition: 0.8s;
+}
+
+select {
+	font: inherit;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	font-size: 18px;
+	margin-right: 8px;
+	background-color: rgba(0, 0, 0, 0.612);
+	color: white;
+	outline: none;
+}
+
+select:not([multiple]) {
+	padding-left: 4px;
+	padding-right: 32px;
+	background-repeat: no-repeat;
+	background-position: calc(100% - 0.25em) 0.6em;
+	background-size: 0.85em auto;
+	background-image: url('https://img.icons8.com/ios-filled/50/FFFFFF/down-squared--v2.png');
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+#search {
+	display: flex;
+}
+
+.pizzaItem {
+	border-radius: 10px 10px 10px 10px;
+	width: 220px;
+	margin-right: 8px;
+	height: 400px;
+	margin-top: 8px;
+	/* border: 1px rgba(255, 255, 255, 0.5) solid; */
+	background-color: rgba(255, 255, 255, 0.3);
+	color: white;
+	text-align: left;
+	padding: 0 0 4px 4px;
+}
+
+.drinkItem {
+	border-radius: 10px 10px 10px 10px;
+	width: 220px;
+	margin-right: 8px;
+	height: 368px;
+	margin-top: 8px;
+	background-color: rgba(255, 255, 255, 0.3);
+	color: white;
+	text-align: left;
+	padding-left: 2px;
+}
+
+.pizzaItem button,
+.drinkItem button {
+	font-size: 14px;
+	padding: 6px 20px;
+}
+
+.pizzaItem img,
+.drinkItem img {
+	height: 200px;
+	display:block;
+margin:auto;
+}
+
+.constructor {
+	display: flex;
+	flex-direction: column;
+}
+
+.constructor img {
+	margin: 0 auto;
+}
+
+.constructor-params {
+	margin: 0 auto;
+}
+
+.constructor-image {
+	position: absolute;
+	left: 25%;
+	right: 25%;
+}
+
+.profile {
+	margin-left: 4px;
+	font-size: 28px;
+	font-weight: 200;
+}
+
+.cart-button {
+	margin: 12px 0;
+}
+
+.cart-item-header {
+	text-align: center;
+}
+
+#totalPrice {
+	font-size: 28px;
+	font-weight: bold;
+	margin: 14px 0;
+}
+
+#hide {
+	display: none;
+}
+
+.cart-pizzerias {
+	font-size: 22px;
+}
+
+.order-button {
+	font-size: 14px;
+	padding: 6px 20px;
+}
+
+.card-item,
+.drink-item,
+.pizzeriaItem {
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(255, 255, 255, 0.3);
+	width: 600px;
+	font-size: 18px;
+	margin: 0 auto;
+	justify-content: center;
+	text-align: center;
+	padding-top: 4px;
+	padding-bottom: 20px;
+	border-radius: 8px;
+	margin-bottom: 6px;
+}
+
+.card-item img,
+.drink-item img,
+.pizzeriaItem img {
+	margin: 0 auto;
+}
+
+.card-item h3,
+.drink-item h3,
+.pizzeriaItem h3 {
+	font-size: 28px;
+	margin: 4px 0 0 0;
+}
+
+.card-buttons {
+	display: flex;
+	justify-content: space-between;
+	width: 500px;
+	margin: 0 auto;
+}
+
+#selectPizzeria:not([multiple]) {
+	background-position: calc(100% - 0.25em) 0.2em;
+}
+
+#cartItem {
+	padding-left: 2px;
+	padding-bottom: 12px;
+	width: 800px;
+}
+
+#orderItem {
+	padding-bottom: 12px;
+}
+
+#cart {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+#link {
+	border: 1px yellow solid;
+	border-radius: 8px;
+	padding: 4px 38px;
+	text-decoration: none;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	font-size: 24px;
+}
+
+#pizzaItem,
+#drinkItem {
+	height: 100%;
+}
+
+#constructor {
+	font-size: 24px;
+	font-weight: bold;
+	padding: 2px 20px;
+	border-radius: 40px;
+}
+
+#constructor-ingredient-name {
+	padding: 0 20px;
+}
+
+#item {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
